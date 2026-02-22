@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <style>
+      body{
+        background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      }
+      .class{
+        padding:50px;
+        text-align:center;
+        font-family:elephant;
+      }
+      input{
+        padding:10px;
+        font-family:calibri;
+      }
+      .id{
+        border:1px solid white;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+        align-items: center; 
+        justify-content: center;
+        display: flex;
+        text-align:center;
+        padding:10px; 
+        display: inline-block;
+        background-color:rgba(300,300,300,0.7);
+        border-radius:10px;
+      }
+      #add{
+        background-color:blue;
+        padding:10px;
+        color:white;
+        border:2px solid white;
+        display:inline-block;
+        border-radius:10px;
+      }
+      #clas{
+        border:1px solid white;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+        padding:10px;
+        background-color:rgba(300,300,300,0.4);
+        border-radius:10px;
+        width:400px;
+        margin: 10px auto;
+      }
+      .i{
+        border:1px solid black;
+        border-radius:10px;
+        padding:10px;
+        display:inline-block;
+        background-color:rgba(300,0,0,0.4);
+        font-family:chiller;
+      }
+      
+      
+    </style>
+  </head>
+  <body>
+    <h1 class="class"><b>To - do List Web App</b></h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <div class="id">
+    <input type="text" id="txtinput" placeholder="Type a new task... &nbsp" required>
+    <input type="datetime-local" id="dtinput" required>&nbsp&nbsp&nbsp&nbsp
+    <button id="add" >Add</button>
+    </div> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <h3 id="clas"><u>My tasks</u> <br>
+    <ul id="list" class="i"></ul>
+    </h3>
+    <script>
+let textinput = document.getElementById("txtinput");
+let dateinput = document.getElementById("dtinput");
+let button = document.getElementById("add");
+let list = document.getElementById("list");
+
+button.addEventListener("click", function() {
+
+    let textValue = textinput.value;
+    let dateValue = dateinput.value;
+
+    if(textValue !== "" && dateValue !== "") {
+
+        let li = document.createElement("li");
+
+        let deleteBtn = document.createElement("button");
+
+        li.innerHTML = textValue + " - " + dateValue + " ";
+
+        deleteBtn.textContent = "⛔️";
+
+        deleteBtn.onclick = function() {
+            li.remove();
+        };
+
+        li.appendChild(deleteBtn);
+
+        list.appendChild(li);
+
+        textinput.value = "";
+        dateinput.value = "";
+    }
+});
+</script>
+</script>
+    </script>
+  </body>
+</html>
